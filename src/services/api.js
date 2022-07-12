@@ -10,6 +10,6 @@ export const createSession = async (email, password) => {
     })
 }
 
-export const getUsers = async () => {
-    return api.get('/users')
+export const getpatients = async () => {
+    return api.get('/patients')
 }

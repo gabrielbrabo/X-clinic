@@ -1,14 +1,16 @@
 import React, {useState, useEffect, useContext} from 'react'
+import { useNavigate } from 'react-router-dom'
 import {AuthContext} from '../../contexts/auth'
 
 const HomePage = () => {
 
+	const navigate = useNavigate()
     const {logout} = useContext(AuthContext)
 	const [usuario, setUsuario] = useState([])
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		const storageUser = localStorage.getItem('user')
+		const storageUser = sessionStorage.getItem('user')
 		if (storageUser) {
 			setUsuario(JSON.parse(storageUser))
 		}
@@ -17,6 +19,9 @@ const HomePage = () => {
 
 	const handleLogout = () => {
 		logout()
+	}
+	const handlepatients = () => {
+		navigate('/patients')
 	}
 
 	if(loading) {
@@ -27,16 +32,15 @@ const HomePage = () => {
 
 	return (
 		<div>
-			<h1>hello word</h1>
+			<h1>X-clinic</h1>
 			<button onClick={handleLogout}>Sair</button>
 			<ul>
 				<li>
 					{usuario.email}
 				</li>
-				<li>
-					{usuario.id}
-				</li>
 			</ul>
+			<button onClick={handlepatients}>Pacientes</button>
+
 
 		</div>
 	)
