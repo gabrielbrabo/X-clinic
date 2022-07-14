@@ -6,16 +6,22 @@ const Patients = () => {
     const [patient, setPatient] = useState([])
 
     useEffect(() => {
-        const response = getpatients()
-        setPatient(response)
-        
+        (async () => {
+            const response = await getpatients()
+            setPatient(response.data.data.patients)
+        })()       
 	}, [])
-    console.log(patient)
     return (
         <div>
             <h1>pacientes</h1>
             <ul>
-                
+                {
+                   patient.map(patients => (
+                    <li key={patients._id}>
+                        {patients.email}, {patients._id}
+                    </li>
+                   ))
+                }
 			</ul>
         </div>
     )

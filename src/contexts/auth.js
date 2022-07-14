@@ -40,8 +40,8 @@ export const AuthProvider = ({children}) => {
     const logout = () => {
 
         console.log("logout")
-        localStorage.removeItem("user")
-        localStorage.removeItem("token")
+        sessionStorage.removeItem("user")
+        sessionStorage.removeItem("token")
         api.defaults.headers.Authorization = null
         setUser(null)
         navigate('/login')
