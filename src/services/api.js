@@ -9,6 +9,11 @@ export const createSession = async (email, password) => {
         email, password
     })
 }
+export const patientRecord = async (name, email) => {
+    return api.post('/cadastro/patients', {
+        name, email
+    })
+}
 
 export const getpatients = async () => {
     return api.get('/patients')

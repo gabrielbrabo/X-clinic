@@ -9,6 +9,7 @@ import { AuthProvider, AuthContext } from './contexts/auth'
 import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import Patients from "./pages/Patients"
+import NewPatient from "./pages/NewPatient"
 
 const AppRoutes = () => {
 
@@ -39,6 +40,11 @@ const AppRoutes = () => {
                     <Route exact path="/patients" element={
                         <Private>
                             <Patients/>
+                        </Private>
+                    }/>
+                    <Route exact path="/new/patient" element={
+                        <Private>
+                            <NewPatient/>
                         </Private>
                     }/>
                 </Routes>

@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {getpatients} from '../../services/api'
+import { useNavigate } from 'react-router-dom'
 
 const Patients = () => {
 
+    const navigate = useNavigate()
     const [patient, setPatient] = useState([])
 
     useEffect(() => {
@@ -11,9 +13,15 @@ const Patients = () => {
             setPatient(response.data.data.patients)
         })()       
 	}, [])
+
+    const handlenewpatients = () => {
+		navigate('/new/patient')
+	}
+
     return (
         <div>
             <h1>pacientes</h1>
+            <button onClick={handlenewpatients}>Novo Paciente</button>
             <ul>
                 {
                    patient.map(patients => (
