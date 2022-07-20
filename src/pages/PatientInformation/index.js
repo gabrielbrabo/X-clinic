@@ -1,9 +1,28 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 
-const PatientsInfaormation = (id) => {
+const PatientsInformation = () => {
+
+    const [information, setInformation] = useState([])
+
+    useEffect(() => {
+		const storageInformation = localStorage.getItem('patient')
+		if (storageInformation) {
+			setInformation(JSON.parse(storageInformation))
+		}
+	}, [])
+    console.log(information)
     return (
-        <h1>Informação do Pacientes</h1>
+        <div>
+            <h1>Informação do Pacientes</h1>
+            <p>Nome do paciente: {information.name}</p>
+            <br/>
+            <p>Email do paciente: {information.email}</p>
+            <br/>
+            <p>ID da Clinica: {information.user}</p>
+            <br/>
+            <p>ID do paciente: {information._id}</p>
+        </div>
     )
 }
-export default PatientsInfaormation
+export default PatientsInformation

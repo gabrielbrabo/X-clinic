@@ -18,9 +18,14 @@ const Patients = () => {
 		navigate('/new/patient')
 	}
 
-    const Patient = (id) => {
+    const Patient = (PatientInformation) => {
+
+        localStorage.removeItem('patient')
+
+        localStorage.setItem('patient', 
+        JSON.stringify(PatientInformation))
+
         navigate('/information/patient')
-        console.log(id)
 	}
     return (
         <div>
@@ -31,7 +36,7 @@ const Patients = () => {
                    patient.map(patients => (
                     <div 
                         onClick={() => 
-                            Patient(patients._id)
+                            Patient(patients)
                         } 
                         key={patients._id}
                     >
