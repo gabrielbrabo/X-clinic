@@ -18,19 +18,28 @@ const Patients = () => {
 		navigate('/new/patient')
 	}
 
+    const Patient = (id) => {
+        navigate('/information/patient')
+        console.log(id)
+	}
     return (
         <div>
-            <h1>pacientes</h1>
+            <h1>Pacientes</h1>
             <button onClick={handlenewpatients}>Novo Paciente</button>
-            <ul>
+            <div>
                 {
                    patient.map(patients => (
-                    <li key={patients._id}>
-                        {patients.email}, {patients._id}
-                    </li>
+                    <div 
+                        onClick={() => 
+                            Patient(patients._id)
+                        } 
+                        key={patients._id}
+                    >
+                        {patients.name}
+                    </div>
                    ))
                 }
-			</ul>
+			</div>
         </div>
     )
 }

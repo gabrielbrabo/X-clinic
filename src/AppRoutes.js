@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import Patients from "./pages/Patients"
 import NewPatient from "./pages/NewPatient"
+import PatientInformation from "./pages/PatientInformation"
 
 const AppRoutes = () => {
 
@@ -45,6 +46,11 @@ const AppRoutes = () => {
                     <Route exact path="/new/patient" element={
                         <Private>
                             <NewPatient/>
+                        </Private>
+                    }/>
+                    <Route exact path="/information/patient" element={
+                        <Private>
+                            <PatientInformation/>
                         </Private>
                     }/>
                 </Routes>
