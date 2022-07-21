@@ -18,9 +18,26 @@ const PatientsInformation = () => {
             <br/>
             <p>Email: {information.email}</p>
             <br/>
-            <p>ID da Clinica: {information.user}</p>
+            <p>Celular: {information.cell}</p>
+            <br/>
+            <p>Data de nascimento: {information.brithData}</p>
+            <br/>
+            <p>CPF: {information.cpf}</p>
+            <br/>
+            <p>RG: {information.rg}</p>
+            <br/>
+            <p>Genêro: {information.sexo}</p>
+            <br/>
+            <p>Breve diagnostico: {information.diagnosis}</p>
+            <br/>
+            <p>Endereço: {information.address}</p>
+            <br/>
+            <p>Numero: {information.number}</p>
+            <br/>
+            <p>Bairro: {information.district}</p>
             <br/>
             <p>ID do paciente: {information._id}</p>
+            <br/>
         </div>
     )
 }
