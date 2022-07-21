@@ -20,9 +20,9 @@ const Patients = () => {
 
     const Patient = (PatientInformation) => {
 
-        localStorage.removeItem('patient')
+        sessionStorage.removeItem('patient')
 
-        localStorage.setItem('patient', 
+        sessionStorage.setItem('patient', 
         JSON.stringify(PatientInformation))
 
         navigate('/information/patient')
