@@ -5,13 +5,43 @@ export const api = axios.create({
 })
 
 export const createSession = async (email, password) => {
+    
     return api.post('/sessions', {
         email, password
     })
+    .catch((error) => {
+        if (error) {
+            const resultado = JSON.stringify(
+                error.response.data.msg
+            )
+            alert(resultado)
+        }
+    }, [])
 }
-export const patientRecord = async (name, email) => {
+
+export const patientRecord = async (
+    name, 
+    email,
+    cell,
+    brithData,
+    sexo,
+    cpf,
+    rg,
+    address,
+    number,
+    district,
+) => {
     return api.post('/cadastro/patients', {
-        name, email
+        name, 
+        email,
+        cell,
+        brithData,
+        sexo,
+        cpf,
+        rg,
+        address,
+        number,
+        district,
     })
 }
 

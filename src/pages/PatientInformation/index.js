@@ -28,8 +28,6 @@ const PatientsInformation = () => {
             <br/>
             <p>Genêro: {information.sexo}</p>
             <br/>
-            <p>Breve diagnostico: {information.diagnosis}</p>
-            <br/>
             <p>Endereço: {information.address}</p>
             <br/>
             <p>Numero: {information.number}</p>

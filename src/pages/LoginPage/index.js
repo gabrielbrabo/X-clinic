@@ -17,6 +17,16 @@ const LoginPage = () => {
     const [password, setPassword] = useState("")
 
     const handleSubmit = async (e) => {
+        
+        if((email.search('@') === -1) ||
+        (email.search('') === -1)) {
+            alert('Email Invalido!')
+        }
+        
+        if((password.search('') === -1)) {
+            alert('Senha Invalida!')
+        }
+        
         e.preventDefault()
         login(email, password)
     }
