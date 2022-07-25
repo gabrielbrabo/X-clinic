@@ -66,7 +66,7 @@ const NewPatients = () => {
                 <div>
                     <label>Celular</label>
                     <input 
-                        type="tel"
+                        type="text"
                         value={cell}
                         onChange={
                             (e) => setCell(e.target.value)

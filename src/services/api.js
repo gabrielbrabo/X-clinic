@@ -11,10 +11,10 @@ export const createSession = async (email, password) => {
     })
     .catch((error) => {
         if (error) {
-            const resultado = JSON.stringify(
+            const result = JSON.stringify(
                 error.response.data.msg
             )
-            alert(resultado)
+            alert(result)
         }
     }, [])
 }
@@ -43,6 +43,14 @@ export const patientRecord = async (
         number,
         district,
     })
+    .catch((error) => {
+        if (error) {
+            const result = JSON.stringify(
+                error.response.data.msg
+            )
+            alert(result)
+        }
+    }, [])
 }
 
 export const getpatients = async () => {
