@@ -14,10 +14,16 @@ const Patients = () => {
         })()       
 	}, [])
 
+    patient.sort(function (a, b) {
+        if(a.name < b.name) return -1
+        if(a.name > b.name) return 1
+        return 0
+    })
+
     const handlenewpatients = () => {
 		navigate('/new/patient')
 	}
-
+    console.log(patient)
     const Patient = (PatientInformation) => {
 
         sessionStorage.removeItem('patient')
