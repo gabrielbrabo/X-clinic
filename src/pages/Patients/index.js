@@ -6,6 +6,7 @@ const Patients = () => {
 
     const navigate = useNavigate()
     const [patient, setPatient] = useState([])
+    const [busca, setBusca] = useState("")
 
     useEffect(() => {
         (async () => {
@@ -23,7 +24,7 @@ const Patients = () => {
     const handlenewpatients = () => {
 		navigate('/new/patient')
 	}
-    console.log(patient)
+
     const Patient = (PatientInformation) => {
 
         sessionStorage.removeItem('patient')
@@ -33,13 +34,29 @@ const Patients = () => {
 
         navigate('/information/patient')
 	}
+
     return (
         <div>
             <h1>Pacientes</h1>
             <button onClick={handlenewpatients}>Novo Paciente</button>
+            <input 
+                type="text" 
+                placeholder='Buscar Paciente'
+                value={busca} 
+                onChange={
+                    (e) => setBusca(e.target.value)
+                }
+            />
             <div>
                 {
-                   patient.map(patients => (
+                   patient.filter((val) => {
+                        if(!busca) {
+                            return (val)
+                        } else if(val.name.includes(busca.toUpperCase())) {
+                            return (val)
+                        }
+                        return null
+                   }).map(patients => (
                     <div 
                         onClick={() => 
                             Patient(patients)
